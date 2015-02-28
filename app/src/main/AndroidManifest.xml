@@ -3,12 +3,13 @@
     package="community.erninet.ch.testintentservice" >
 
     <application
+        android:name=".application.Globals"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".presenter.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +19,7 @@
         </activity>
 
         <service
-            android:name=".MyIntentService"
+            android:name=".service.MyIntentService"
             android:exported="false" >
         </service>
     </application>

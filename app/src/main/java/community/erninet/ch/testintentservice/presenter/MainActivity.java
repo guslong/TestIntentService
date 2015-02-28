@@ -1,15 +1,11 @@
-package community.erninet.ch.testintentservice;
+package community.erninet.ch.testintentservice.presenter;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+
+import community.erninet.ch.testintentservice.R;
 
 
 public class MainActivity extends ActionBarActivity {

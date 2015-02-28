@@ -1,4 +1,4 @@
-package community.erninet.ch.testintentservice;
+package community.erninet.ch.testintentservice.presenter;
 
 
 import android.app.Activity;
@@ -14,10 +14,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import community.erninet.ch.testintentservice.R;
+import community.erninet.ch.testintentservice.service.MyIntentService;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class BlankFragment extends Fragment {
 
 
@@ -56,14 +56,14 @@ public class BlankFragment extends Fragment {
 
         Log.i("TestIntentService", "OnAttach");
 
-        // register a broadcast receiver
+        // register a broadcast receiver to receive the broadcast from the service
         filter = new IntentFilter("service");
         myReceiver = new MyReceiver();
         getActivity().registerReceiver(myReceiver, filter);
 
-
         super.onAttach(activity);
     }
+
     @Override
     public void onResume() {
         getActivity().registerReceiver(myReceiver, filter);
