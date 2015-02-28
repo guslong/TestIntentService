@@ -2,7 +2,10 @@ package community.erninet.ch.testintentservice;
 
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 
 import android.support.v4.app.Fragment;
@@ -17,7 +20,15 @@ import android.view.ViewGroup;
  */
 public class BlankFragment extends Fragment {
 
+
+    IntentFilter filter;
+    MyReceiver myReceiver;
+
+    public static final String MESSAGE_KEY = "MESSAGE";
+
+    public static final String TAG = "TestIntentService";
     private static final String ACTION_FOO = "community.erninet.ch.testintentservice.action.FOO";
+
     public BlankFragment() {
         // Required empty public constructor
     }
@@ -45,6 +56,33 @@ public class BlankFragment extends Fragment {
 
         Log.i("TestIntentService", "OnAttach");
 
+        // register a broadcast receiver
+        filter = new IntentFilter("service");
+        myReceiver = new MyReceiver();
+        getActivity().registerReceiver(myReceiver, filter);
+
+
         super.onAttach(activity);
     }
+    @Override
+    public void onResume() {
+        getActivity().registerReceiver(myReceiver, filter);
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        getActivity().unregisterReceiver(myReceiver);
+        super.onPause();
+    }
+
+
+    private class MyReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.i(TAG, "Received a message that reads " + intent.getStringExtra(MESSAGE_KEY));
+        }
+    }
+
+
 }

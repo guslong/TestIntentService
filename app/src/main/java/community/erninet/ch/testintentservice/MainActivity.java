@@ -14,10 +14,10 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
     public static final String TAG = "TestIntentService";
-    IntentFilter filter;
+
 
     public static final String MESSAGE_KEY = "MESSAGE";
-    private MyReceiver myReceiver;
+
 
 
     @Override
@@ -30,24 +30,10 @@ public class MainActivity extends ActionBarActivity {
                     .commit();
         }
 
-        // register a broadcast receiver
-        filter = new IntentFilter("service");
-        myReceiver = new MyReceiver();
-        registerReceiver(myReceiver, filter);
 
     }
 
-    @Override
-    protected void onResume() {
-        registerReceiver(myReceiver, filter);
-        super.onResume();
-    }
 
-    @Override
-    protected void onPause() {
-        unregisterReceiver(myReceiver);
-        super.onPause();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -72,10 +58,5 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-    private class MyReceiver extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.i(TAG, "Received a message that reads " + intent.getStringExtra(MESSAGE_KEY));
-        }
-    }
+
 }
