@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="community.erninet.ch.testintentservice" >
+    package="community.erninet.ch.testintentservice">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".application.Globals"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+
         <activity
             android:name=".presenter.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,8 +22,7 @@
 
         <service
             android:name=".service.MyIntentService"
-            android:exported="false" >
-        </service>
+            android:exported="false"></service>
     </application>
 
 </manifest>

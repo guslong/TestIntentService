@@ -4,7 +4,7 @@ import android.app.Application;
 
 import java.util.ArrayList;
 
-import community.erninet.ch.testintentservice.model.Moods;
+import community.erninet.ch.testintentservice.model.Mood;
 
 /**
  * Created by gus on 28/02/15.
@@ -12,22 +12,18 @@ import community.erninet.ch.testintentservice.model.Moods;
 public class Globals extends Application {
 
     // this array list will store all the objects retrieved from backend in the application memory
-    ArrayList<Moods> moods;
+    ArrayList<Mood> moods;
 
     @Override
     public void onCreate() {
 
-        // this could even be made to initialise already with the stuff from the database, by calling the service.... ???
-        // for now just initialise it to null.
-        moods = null;
     }
 
-
-    public void setMoods(ArrayList<Moods> moods) {
+    public void setMoods(ArrayList<Mood> moods) {
         this.moods = moods;
     }
 
-    public ArrayList<Moods> getMoods() {
+    public ArrayList<Mood> getMoods() {
         return moods;
     }
 }

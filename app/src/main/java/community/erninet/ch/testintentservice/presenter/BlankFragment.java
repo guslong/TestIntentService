@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import community.erninet.ch.testintentservice.R;
+import community.erninet.ch.testintentservice.application.Globals;
 import community.erninet.ch.testintentservice.service.MyIntentService;
 
 
@@ -81,6 +82,8 @@ public class BlankFragment extends Fragment {
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.i(TAG, "Received a message that reads " + intent.getStringExtra(MESSAGE_KEY));
+
+
         }
     }
 
