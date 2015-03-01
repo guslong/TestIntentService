@@ -13,9 +13,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import community.erninet.ch.testintentservice.R;
 import community.erninet.ch.testintentservice.application.Globals;
+import community.erninet.ch.testintentservice.model.Mood;
 import community.erninet.ch.testintentservice.service.MyIntentService;
 
 
@@ -81,11 +86,20 @@ public class BlankFragment extends Fragment {
     private class MyReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.i(TAG, "Received a message that reads " + intent.getStringExtra(MESSAGE_KEY));
 
+            Toast.makeText(context, intent.getStringExtra(MESSAGE_KEY), Toast.LENGTH_SHORT).show();
 
+            // then update the TextView with the text retrieved from the backend
+            updateView();
         }
     }
+
+    private void updateView() {
+        TextView tv1 = (TextView)getView().findViewById(R.id.tv1);
+        ArrayList<Mood> moodyList = ((Globals)getActivity().getApplication()).getMoodsStorage();
+        tv1.setText(moodyList.toString());
+    }
+
 
 
 }

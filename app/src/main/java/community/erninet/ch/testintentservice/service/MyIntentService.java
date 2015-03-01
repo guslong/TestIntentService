@@ -61,6 +61,9 @@ public class MyIntentService extends IntentService {
             Log.i(TAG, result);
             Log.i(TAG, moods.toString());
 
+            // and now store this in the globals class so we can access it from anywhere.
+            ((Globals)getApplication()).setMoodsStorage(moods);
+
         } catch (Exception e) {
 
             result = "Error";
@@ -70,9 +73,7 @@ public class MyIntentService extends IntentService {
             doBroadcast(result);
 
         }
-
     }
-
 
     private void doBroadcast(final String result) {
         Intent intent = new Intent();

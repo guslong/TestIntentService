@@ -11,19 +11,19 @@ import community.erninet.ch.testintentservice.model.Mood;
  */
 public class Globals extends Application {
 
-    // this array list will store all the objects retrieved from backend in the application memory
-    ArrayList<Mood> moods;
+    // this array list will store all the moods objects retrieved from backend in the application memory
+    private ArrayList<Mood> moodsStorage;
 
     @Override
     public void onCreate() {
 
     }
 
-    public void setMoods(ArrayList<Mood> moods) {
-        this.moods = moods;
+    public void setMoodsStorage(ArrayList<Mood> moodsStorage) {
+        this.moodsStorage = moodsStorage;
     }
 
-    public ArrayList<Mood> getMoods() {
-        return moods;
+    public ArrayList<Mood> getMoodsStorage() {
+        return moodsStorage;
     }
 }
